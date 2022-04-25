@@ -4,10 +4,10 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="M1芯片Mac tensorflow环境搭建教程, Pk的小世界">
-    <meta name="description" content="[toc]
-近日入手新版MacBook，拿到手打算立马配置好环境，但由于m1芯片是arm架构，故与传统配置方法有所差异。经过研究，现已能够实现配置。
-​    参考教程：https://www.youtube.com/watch?v=4nY">
+    <meta name="keywords" content="prim代码实现, Pk的小世界">
+    <meta name="description" content="题目描述如下：给定一个 n 个点 m 条边的无向图，图中可能存在重边和自环，边权可能为负数。
+求最小生成树的树边权重之和，如果最小生成树不存在则输出 impossible。
+给定一张边带权的无向图 G=(V,E)，其中 V 表示图中点的集合">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +19,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>M1芯片Mac tensorflow环境搭建教程 | Pk的小世界</title>
+    <title>prim代码实现 | Pk的小世界</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpeg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -424,12 +424,12 @@ mjx-container[display="true"] + br {
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">M1芯片Mac tensorflow环境搭建教程</h1>
+                    <h1 class="description center-align post-title">prim代码实现</h1>
                 </div>
             </div>
         </div>
@@ -545,12 +545,12 @@ mjx-container[display="true"] + br {
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/">
-                                <span class="chip bg-color">深度学习入门</span>
+                            <a href="/tags/%E5%9B%BE%E8%AE%BA/">
+                                <span class="chip bg-color">图论</span>
                             </a>
                         
-                            <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
-                                <span class="chip bg-color">环境搭建</span>
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C++</span>
                             </a>
                         
                     </div>
@@ -561,8 +561,8 @@ mjx-container[display="true"] + br {
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                深度学习
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
+                                数据结构与算法
                             </a>
                         
                     </div>
@@ -580,7 +580,7 @@ mjx-container[display="true"] + br {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-02-01
+                    2022-04-25
                 </div>
                 
 
@@ -589,7 +589,7 @@ mjx-container[display="true"] + br {
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    452
+                    507
                 </div>
                 
 
@@ -614,35 +614,69 @@ mjx-container[display="true"] + br {
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>[toc]</p>
-<p>近日入手新版MacBook，拿到手打算立马配置好环境，但由于m1芯片是arm架构，故与传统配置方法有所差异。经过研究，现已能够实现配置。</p>
-<p>​    参考教程：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4nY5lDBXdOg">https://www.youtube.com/watch?v=4nY5lDBXdOg</a>     <del>(kexueshangwang)</del></p>
-<p>​    由于之前能够找到国内的教程存在一些步骤的跳过/问题，这里还是推荐国外的网站教程。本篇博客教程会比较详细，若存在报错尚未解决，也可以联系我/前往stackoverflow。</p>
-<h3 id="1-Install-Tensorflow-prerequisites"><a href="#1-Install-Tensorflow-prerequisites" class="headerlink" title="1.Install Tensorflow prerequisites"></a>1.Install Tensorflow prerequisites</h3><h4 id="1-1前往homebrew官网，复制官网给出的命令"><a href="#1-1前往homebrew官网，复制官网给出的命令" class="headerlink" title="1.1前往homebrew官网，复制官网给出的命令"></a>1.1前往homebrew官网，复制官网给出的命令</h4><p>​    <strong>这里推荐设置镜像源，加快下载速度：</strong></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">export</span> <span class="token assign-left variable">HOMEBREW_BREW_GIT_REMOTE</span><span class="token operator">=</span><span class="token string">"..."</span>  <span class="token comment"># put your Git mirror of Homebrew/brew here</span>
-<span class="token builtin class-name">export</span> <span class="token assign-left variable">HOMEBREW_CORE_GIT_REMOTE</span><span class="token operator">=</span><span class="token string">"..."</span>  <span class="token comment"># put your Git mirror of Homebrew/homebrew-core here</span>
-/bin/bash -c <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh<span class="token variable">)</span></span>"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+                <h4 id="题目描述如下："><a href="#题目描述如下：" class="headerlink" title="题目描述如下："></a>题目描述如下：</h4><p>给定一个 n 个点 m 条边的无向图，图中可能存在重边和自环，边权可能为负数。</p>
+<p>求最小生成树的树边权重之和，如果最小生成树不存在则输出 <code>impossible</code>。</p>
+<p>给定一张边带权的无向图 G=(V,E)，其中 V 表示图中点的集合，E 表示图中边的集合，n=|V|，m=|E|。</p>
+<p>由 V 中的全部 n 个顶点和 E 中 n−1 条边构成的无向连通子图被称为 G 的一棵生成树，其中边的权值之和最小的生成树被称为无向图 G 的最小生成树。</p>
+<h4 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h4><p>第一行包含两个整数 n 和 m。</p>
+<p>接下来 m 行，每行包含三个整数 u,v,w，表示点 u 和点 v 之间存在一条权值为 w 的边。</p>
+<h4 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h4><p>共一行，若存在最小生成树，则输出一个整数，表示最小生成树的树边权重之和，如果最小生成树不存在则输出 <code>impossible</code>。</p>
+<h4 id="数据范围"><a href="#数据范围" class="headerlink" title="数据范围"></a>数据范围</h4><p>1≤n≤500,<br>1≤m≤105,<br>图中涉及边的边权的绝对值均不超过 10000。</p>
+<h4 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h4><pre class="line-numbers language-none"><code class="language-none">4 5
+1 2 1
+1 3 2
+1 4 3
+2 3 2
+3 4 4<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="1-2安装Xcode命令行工具"><a href="#1-2安装Xcode命令行工具" class="headerlink" title="1.2安装Xcode命令行工具"></a>1.2安装Xcode命令行工具</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">xcode-select --install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<h4 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h4><pre class="line-numbers language-none"><code class="language-none">6<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h4 id="1-3安装miniforge"><a href="#1-3安装miniforge" class="headerlink" title="1.3安装miniforge"></a>1.3安装miniforge</h4><p>​    <strong>前往github.com/conda-forge，在readme文件中找到下载链接</strong></p>
-<p>​    <strong>安装好后cd到下载路径(这里我安装到桌面），然后执行sh脚本：</strong></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> Desktop
-<span class="token function">chmod</span> +x Miniforge3-MacOSX-arm64.sh
-./Miniforge3-MscOSX-arm64.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>代码如下：</p>
+<pre class="line-numbers language-c++" data-language="c++"><code class="language-c++">#include&lt;iostream&gt;
+#include&lt;cstring&gt;
+#include &lt;algorithm&gt;
 
-<p>​    <strong>一路回车，yes后安装完成</strong></p>
-<h4 id="1-4创建conda虚拟环境"><a href="#1-4创建conda虚拟环境" class="headerlink" title="1.4创建conda虚拟环境"></a>1.4创建conda虚拟环境</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">conda create --name env_tf <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">3.9</span>
-conda activate env_tf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+using namespace std;
+const int N=510,M=100010,INF=0x3f3f3f3f;//INF设置为负无穷
 
-<h3 id="2-Install-Tensorflow-amp-Tensorflow-Metal"><a href="#2-Install-Tensorflow-amp-Tensorflow-Metal" class="headerlink" title="2.Install Tensorflow & Tensorflow Metal"></a>2.Install Tensorflow &amp; Tensorflow Metal</h3><h4 id="2-1安装Tensorflow开发者工具与Tensorflow"><a href="#2-1安装Tensorflow开发者工具与Tensorflow" class="headerlink" title="2.1安装Tensorflow开发者工具与Tensorflow"></a>2.1安装Tensorflow开发者工具与Tensorflow</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">conda <span class="token function">install</span> -c apple tensorflow-deps -y
-python -m pip <span class="token function">install</span> tensorflow-macos
-pip <span class="token function">install</span> tensorflow-metal<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+int n,m;
+int g[N][N],dist[N];
+bool st[N];
+int prim(){
+    memset(dist,0x3f,sizeof dist);
+    dist[1]=0;
+    int res=0;
+    for(int i=0;i&lt;n;i++){
+        int t=-1;
+        for (int j=1;j&lt;=n;j++)
+            if(!st[j]&amp;&amp;(t==-1||dist[t]&gt;dist[j]))
+                t=j;
+        if(dist[t]==INF) return INF;
+        st[t]=true;
+        res += dist[t];
+        for(int j=1;j&lt;=n;j++)
+            dist[j]=min(dist[j],g[t][j]);
+            
+        
+    }
+    return res;
+}
+int main(){
+    scanf("%d%d",&amp;n,&amp;m);
+    memset(g,0x3f,sizeof g);
+    while(m--){
+        int a,b,c;
+        scanf("%d%d%d",&amp;a,&amp;b,&amp;c);
+        g[a][b]=g[b][a]=min(g[a][b],c);//去掉重复吧边的情况
+        
+    }
+    int res=prim();
+    if (res == INF) puts("impossible");
+    else printf("%d\n",res);
+    return 0;
+}<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="2-2安装相关包、Jupyter等"><a href="#2-2安装相关包、Jupyter等" class="headerlink" title="2.2安装相关包、Jupyter等"></a>2.2安装相关包、Jupyter等</h4><p>​    这里就比较容易了，可以直接一句句conda install [_name]，也可以把想装的包全写在一个文件里一次性安装。</p>
-<h3 id="3-如何科学上网"><a href="#3-如何科学上网" class="headerlink" title="3.如何科学上网"></a><strong>3.如何<del>科学上网</del></strong></h3><p>​    在学习/科研的过程中，我们难免会需要使用一些外网（Google/Stackoverflow/Github/Youtube等）。在这里，由于进行换源操作确实很麻烦，最后我直接开了美国IP暴力解决，这里想推荐一款我使用的Vpn。</p>
-<p>​                                                                           <del><a href="">cmy2.network</a></del></p>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1>
+
                 
             </div>
             <hr/>
@@ -668,7 +702,7 @@ pip <span class="token function">install</span> tensorflow-metal<span aria-hidde
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Eric-Pk.github.io/2022/02/01/m1%E8%8A%AF%E7%89%87Mac%20tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/">http://Eric-Pk.github.io/2022/02/01/m1%E8%8A%AF%E7%89%87Mac%20tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</a>
+                    <a href="http://Eric-Pk.github.io/2022/04/25/prim%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/">http://Eric-Pk.github.io/2022/04/25/prim%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -706,12 +740,12 @@ pip <span class="token function">install</span> tensorflow-metal<span aria-hidde
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/">
-                                    <span class="chip bg-color">深度学习入门</span>
+                                <a href="/tags/%E5%9B%BE%E8%AE%BA/">
+                                    <span class="chip bg-color">图论</span>
                                 </a>
                             
-                                <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
-                                    <span class="chip bg-color">环境搭建</span>
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C++</span>
                                 </a>
                             
                         </div>
@@ -759,9 +793,10 @@ pip <span class="token function">install</span> tensorflow-metal<span aria-hidde
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
                 <a href="/2022/04/25/prim%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/">
                     <div class="card-image">
@@ -779,9 +814,9 @@ pip <span class="token function">install</span> tensorflow-metal<span aria-hidde
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-25
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -794,6 +829,7 @@ pip <span class="token function">install</span> tensorflow-metal<span aria-hidde
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
@@ -816,13 +852,13 @@ pip <span class="token function">install</span> tensorflow-metal<span aria-hidde
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/01/21/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">
+                <a href="/2022/02/01/m1%E8%8A%AF%E7%89%87Mac%20tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="深度学习之数学基础">
+                        <img src="/medias/featureimages/17.jpg" class="responsive-img" alt="M1芯片Mac tensorflow环境搭建教程">
                         
-                        <span class="card-title">深度学习之数学基础</span>
+                        <span class="card-title">M1芯片Mac tensorflow环境搭建教程</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -833,7 +869,7 @@ pip <span class="token function">install</span> tensorflow-metal<span aria-hidde
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-02-01
                             </span>
                         <span class="publish-author">
                             
@@ -850,16 +886,12 @@ pip <span class="token function">install</span> tensorflow-metal<span aria-hidde
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E4%BC%98%E8%B4%A8%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%BF%90/">
-                        <span class="chip bg-color">优质博客搬运</span>
+                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/">
+                        <span class="chip bg-color">深度学习入门</span>
                     </a>
                     
-                    <a href="/tags/Tutorial/">
-                        <span class="chip bg-color">Tutorial</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">深度学习</span>
+                    <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
+                        <span class="chip bg-color">环境搭建</span>
                     </a>
                     
                 </div>
