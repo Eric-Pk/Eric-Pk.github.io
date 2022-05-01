@@ -4,10 +4,15 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="M1芯片Mac tensorflow环境搭建教程, Pk的小世界">
-    <meta name="description" content="[toc]
-近日入手新版MacBook，拿到手打算立马配置好环境，但由于m1芯片是arm架构，故与传统配置方法有所差异。经过研究，现已能够实现配置。
-​	参考教程：https://www.youtube.com/watch?v=4nY5lD">
+    <meta name="keywords" content="公众号【DASOU】原创三个月从零入门深度学习路线图, Pk的小世界">
+    <meta name="description" content="基础知识数学
+线性代数
+
+向量、矩阵、运算、范数、特征向量和特征值
+随便在B站找一个两个小时快速复习线性代数的课程就可以，不收费的那种。我在视频中推荐的那个视频后续会收费，我就不把链接放在这里了。大家在B站随便找一个播放量高的就可以。
+
+
+">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +24,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>M1芯片Mac tensorflow环境搭建教程 | Pk的小世界</title>
+    <title>公众号【DASOU】原创三个月从零入门深度学习路线图 | Pk的小世界</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpeg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -424,12 +429,12 @@ mjx-container[display="true"] + br {
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">M1芯片Mac tensorflow环境搭建教程</h1>
+                    <h1 class="description center-align post-title">公众号【DASOU】原创三个月从零入门深度学习路线图</h1>
                 </div>
             </div>
         </div>
@@ -545,12 +550,8 @@ mjx-container[display="true"] + br {
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/">
-                                <span class="chip bg-color">深度学习入门</span>
-                            </a>
-                        
-                            <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
-                                <span class="chip bg-color">环境搭建</span>
+                            <a href="/tags/NLP%EF%BC%8C%E4%BC%98%E8%B4%A8%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%BF%90/">
+                                <span class="chip bg-color">NLP，优质博客搬运</span>
                             </a>
                         
                     </div>
@@ -580,7 +581,7 @@ mjx-container[display="true"] + br {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-02-01
+                    2022-05-02
                 </div>
                 
 
@@ -589,7 +590,7 @@ mjx-container[display="true"] + br {
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    452
+                    2.1k
                 </div>
                 
 
@@ -614,35 +615,335 @@ mjx-container[display="true"] + br {
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>[toc]</p>
-<p>近日入手新版MacBook，拿到手打算立马配置好环境，但由于m1芯片是arm架构，故与传统配置方法有所差异。经过研究，现已能够实现配置。</p>
-<p>​	参考教程：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4nY5lDBXdOg">https://www.youtube.com/watch?v=4nY5lDBXdOg</a>     <del>(kexueshangwang)</del></p>
-<p>​	由于之前能够找到国内的教程存在一些步骤的跳过/问题，这里还是推荐国外的网站教程。本篇博客教程会比较详细，若存在报错尚未解决，也可以联系我/前往stackoverflow。</p>
-<h3 id="1-Install-Tensorflow-prerequisites"><a href="#1-Install-Tensorflow-prerequisites" class="headerlink" title="1.Install Tensorflow prerequisites"></a>1.Install Tensorflow prerequisites</h3><h4 id="1-1前往homebrew官网，复制官网给出的命令"><a href="#1-1前往homebrew官网，复制官网给出的命令" class="headerlink" title="1.1前往homebrew官网，复制官网给出的命令"></a>1.1前往homebrew官网，复制官网给出的命令</h4><p>​	<strong>这里推荐设置镜像源，加快下载速度：</strong></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">export</span> <span class="token assign-left variable">HOMEBREW_BREW_GIT_REMOTE</span><span class="token operator">=</span><span class="token string">"..."</span>  <span class="token comment"># put your Git mirror of Homebrew/brew here</span>
-<span class="token builtin class-name">export</span> <span class="token assign-left variable">HOMEBREW_CORE_GIT_REMOTE</span><span class="token operator">=</span><span class="token string">"..."</span>  <span class="token comment"># put your Git mirror of Homebrew/homebrew-core here</span>
-/bin/bash -c <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh<span class="token variable">)</span></span>"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="1-2安装Xcode命令行工具"><a href="#1-2安装Xcode命令行工具" class="headerlink" title="1.2安装Xcode命令行工具"></a>1.2安装Xcode命令行工具</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">xcode-select --install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h4 id="1-3安装miniforge"><a href="#1-3安装miniforge" class="headerlink" title="1.3安装miniforge"></a>1.3安装miniforge</h4><p>​	<strong>前往github.com/conda-forge，在readme文件中找到下载链接</strong></p>
-<p>​    <strong>安装好后cd到下载路径(这里我安装到桌面），然后执行sh脚本：</strong></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> Desktop
-<span class="token function">chmod</span> +x Miniforge3-MacOSX-arm64.sh
-./Miniforge3-MscOSX-arm64.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<p>​	<strong>一路回车，yes后安装完成</strong></p>
-<h4 id="1-4创建conda虚拟环境"><a href="#1-4创建conda虚拟环境" class="headerlink" title="1.4创建conda虚拟环境"></a>1.4创建conda虚拟环境</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">conda create --name env_tf <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">3.9</span>
-conda activate env_tf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h3 id="2-Install-Tensorflow-amp-Tensorflow-Metal"><a href="#2-Install-Tensorflow-amp-Tensorflow-Metal" class="headerlink" title="2.Install Tensorflow & Tensorflow Metal"></a>2.Install Tensorflow &amp; Tensorflow Metal</h3><h4 id="2-1安装Tensorflow开发者工具与Tensorflow"><a href="#2-1安装Tensorflow开发者工具与Tensorflow" class="headerlink" title="2.1安装Tensorflow开发者工具与Tensorflow"></a>2.1安装Tensorflow开发者工具与Tensorflow</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">conda <span class="token function">install</span> -c apple tensorflow-deps -y
-python -m pip <span class="token function">install</span> tensorflow-macos
-pip <span class="token function">install</span> tensorflow-metal<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="2-2安装相关包、Jupyter等"><a href="#2-2安装相关包、Jupyter等" class="headerlink" title="2.2安装相关包、Jupyter等"></a>2.2安装相关包、Jupyter等</h4><p>​	这里就比较容易了，可以直接一句句conda install [_name]，也可以把想装的包全写在一个文件里一次性安装。</p>
-<h3 id="3-如何科学上网"><a href="#3-如何科学上网" class="headerlink" title="3.如何科学上网"></a><strong>3.如何<del>科学上网</del></strong></h3><p>​    在学习/科研的过程中，我们难免会需要使用一些外网（Google/Stackoverflow/Github/Youtube等）。在这里，由于进行换源操作确实很麻烦，最后我直接开了美国IP暴力解决，这里想推荐一款我使用的Vpn。</p>
-<p>​                                                                           <del><a href="">cmy2.network</a></del></p>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1>
+                <h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a>基础知识</h2><h3 id="数学"><a href="#数学" class="headerlink" title="数学"></a>数学</h3><ul>
+<li><p>线性代数</p>
+<ul>
+<li><p>向量、矩阵、运算、范数、特征向量和特征值</p>
+<p>随便在B站找一个两个小时快速复习线性代数的课程就可以，不收费的那种。<br>我在视频中推荐的那个视频后续会收费，我就不把链接放在这里了。大家在B站随便找一个播放量高的就可以。</p>
+</li>
+</ul>
+</li>
+<li><p>高数</p>
+<ul>
+<li><p>导数/微分/积分</p>
+</li>
+<li><p>梯度</p>
+</li>
+<li><p>泰勒展开公式</p>
+</li>
+<li><p>概率论</p>
+<ul>
+<li><p>条件概率，期望等等</p>
+<p>随便在B站找一个几个小时快速回顾概率论的课程就可以，不收费的那种。<br>我在视频中推荐的那个视频后续会收费，我就不把链接放在这里了。大家在B站随便找一个播放量高的就可以。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>时间安排：一周</p>
+</li>
+</ul>
+<h3 id="Python"><a href="#Python" class="headerlink" title="Python"></a>Python</h3><ul>
+<li><p>廖雪峰免费教程</p>
+<p>廖雪峰官网免费教程：<br><a target="_blank" rel="noopener" href="https://www.liaoxuefeng.com/wiki/1016959663602400">https://www.liaoxuefeng.com/wiki/1016959663602400</a></p>
+<p>从第一讲看到常用的第三方模块，了解面向对象变成；</p>
+</li>
+<li><p>Python实战</p>
+<ul>
+<li><p>利用Python进行数据分析</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/iamseancheney/python_for_data_analysis_2nd_chinese_version">https://github.com/iamseancheney/python_for_data_analysis_2nd_chinese_version</a></p>
+</li>
+</ul>
+</li>
+<li><p>时间安排：一周</p>
+</li>
+</ul>
+<h3 id="整个时间安排：三周；打出一周时间"><a href="#整个时间安排：三周；打出一周时间" class="headerlink" title="整个时间安排：三周；打出一周时间"></a>整个时间安排：三周；打出一周时间</h3><h2 id="机器学习理论入门"><a href="#机器学习理论入门" class="headerlink" title="机器学习理论入门"></a>机器学习理论入门</h2><h3 id="李航老师-统计学习"><a href="#李航老师-统计学习" class="headerlink" title="李航老师-统计学习"></a>李航老师-统计学习</h3><ul>
+<li><p>三个准则</p>
+<ul>
+<li><ol>
+<li>作为入门选手，不要每章都看</li>
+</ol>
+</li>
+<li><ol start="2">
+<li>不要从零造轮子去实现算法，太浪费时间</li>
+</ol>
+</li>
+<li><ol start="3">
+<li>必须能手推公式</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><p>章节目录</p>
+<ul>
+<li><ol>
+<li>统计学习概论</li>
+</ol>
+<ul>
+<li>必看</li>
+</ul>
+</li>
+<li><ol start="2">
+<li>感知机</li>
+</ol>
+<ul>
+<li>必看</li>
+</ul>
+</li>
+<li><ol start="3">
+<li>K近邻</li>
+</ol>
+<ul>
+<li>可以不看</li>
+</ul>
+</li>
+<li><p>4.朴素贝叶斯</p>
+<ul>
+<li>必看</li>
+</ul>
+</li>
+<li><p>5.决策树</p>
+<ul>
+<li>必看</li>
+</ul>
+</li>
+<li><ol start="6">
+<li>逻辑回归和最大熵</li>
+</ol>
+<ul>
+<li>必看</li>
+</ul>
+</li>
+<li><ol start="7">
+<li>支持向量机</li>
+</ol>
+<ul>
+<li>可以不看</li>
+</ul>
+</li>
+<li><p>8.提升树</p>
+<ul>
+<li>必看</li>
+</ul>
+</li>
+<li><p>9.EM算法</p>
+<ul>
+<li>可以不看</li>
+</ul>
+</li>
+<li><p>10.隐马尔科夫</p>
+<ul>
+<li>可以不看</li>
+</ul>
+</li>
+<li><p>11.条件随机场</p>
+<ul>
+<li>可以不看</li>
+</ul>
+</li>
+<li><p>题外：xgboost</p>
+<p>看我的博客：</p>
+<p>Xgboost完全详细解读（原理+代码） - DASOU的文章 - 知乎<br><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/290964953">https://zhuanlan.zhihu.com/p/290964953</a></p>
+<ul>
+<li>必看</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="刘建平博客"><a href="#刘建平博客" class="headerlink" title="刘建平博客"></a>刘建平博客</h3><p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/pinard/category/894692.html?page=4">https://www.cnblogs.com/pinard/category/894692.html?page=4</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/ljpzzz/machinelearning">https://github.com/ljpzzz/machinelearning</a></p>
+<h3 id="学习注意事项"><a href="#学习注意事项" class="headerlink" title="学习注意事项"></a>学习注意事项</h3><p>比如说，你看完逻辑回归，没看懂，来博客，找到逻辑回归的博客，看一遍，然后同样用他的博客里面代码，实现一遍；</p>
+<p>代码这里，在github上也有；<a target="_blank" rel="noopener" href="https://github.com/ljpzzz/machinelearning">https://github.com/ljpzzz/machinelearning</a></p>
+<p>在这个过程中，你要去搞清楚这个算法输入数据，输出数据，每个参数的含义是什么；可以自己自己调一下参数，<br>看看不同参数下最终效果有什么不同；但是在这里不要花费太大精力在调参上，因为你现在代码实现的是一个demo，数据量很小，调参没什么意义；什么时候调参呢？我一会会讲到；</p>
+<h3 id="时间安排：一共六章内容；三周"><a href="#时间安排：一共六章内容；三周" class="headerlink" title="时间安排：一共六章内容；三周"></a>时间安排：一共六章内容；三周</h3><h2 id="机器学习实战入门"><a href="#机器学习实战入门" class="headerlink" title="机器学习实战入门"></a>机器学习实战入门</h2><h3 id="阿里云天池大赛赛题解析（机器学习篇）"><a href="#阿里云天池大赛赛题解析（机器学习篇）" class="headerlink" title="阿里云天池大赛赛题解析（机器学习篇）"></a>阿里云天池大赛赛题解析（机器学习篇）</h3><ul>
+<li><p>要不要买</p>
+<ul>
+<li>看自己，代码有开源</li>
+</ul>
+</li>
+<li><p>四个任务</p>
+<ul>
+<li>工业蒸汽预测天猫用户重复购买预测O2O优惠券预测阿里云安全恶意程序检测</li>
+</ul>
+</li>
+<li><p>怎么看</p>
+<p>有四个任务是吧，你挑其中的一个或者两个，不需要都看，没必要；</p>
+<p>怎么确定把这一个或者两个任务吃透呢？</p>
+<p>七个步骤：赛题理解、数据探索、特征工程、模型训练、模型验证、特征优化、模型融合7个步骤</p>
+<p>四个任务中挑一个或者两个，在一周，七天的话，三天看一个，七天看两个，或者七天你就看一个，比如第一个，把它吃透就够了；</p>
+</li>
+<li><p>开源代码</p>
+<p><a target="_blank" rel="noopener" href="https://tianchi.aliyun.com/specials/promotion/bookcode">https://tianchi.aliyun.com/specials/promotion/bookcode</a></p>
+</li>
+<li><p>时间安排：一周</p>
+</li>
+</ul>
+<h2 id="深度学习理论入门"><a href="#深度学习理论入门" class="headerlink" title="深度学习理论入门"></a>深度学习理论入门</h2><h3 id="很多朋友会推荐李沐老师【动手深度学习】"><a href="#很多朋友会推荐李沐老师【动手深度学习】" class="headerlink" title="很多朋友会推荐李沐老师【动手深度学习】"></a>很多朋友会推荐李沐老师【动手深度学习】</h3><ul>
+<li>这个课程先放一放，入门之后看更好</li>
+</ul>
+<h3 id="深度学习"><a href="#深度学习" class="headerlink" title="深度学习"></a>深度学习</h3><ul>
+<li><p>NLP</p>
+<ul>
+<li>文本分类</li>
+<li>文本匹配</li>
+<li>序列标注</li>
+<li>文本生成</li>
+</ul>
+</li>
+<li><p>CV</p>
+<ul>
+<li><p>图像理解</p>
+<ul>
+<li>分类</li>
+<li>检测</li>
+<li>分割</li>
+<li>追踪</li>
+</ul>
+</li>
+<li><p>图像生成</p>
+<ul>
+<li>GAN模型</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="计算机视觉"><a href="#计算机视觉" class="headerlink" title="计算机视觉"></a>计算机视觉</h3><ul>
+<li><p>cs231n</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1nJ411z7fe?from=search&amp;seid=7594775480695125527&amp;spm_id_from=333.337.0.0">https://www.bilibili.com/video/BV1nJ411z7fe?from=search&amp;seid=7594775480695125527&amp;spm_id_from=333.337.0.0</a></p>
+<ul>
+<li><p>一共33讲，不要都看；作为入门来说，主要是学习p1-p22;</p>
+</li>
+<li><p>完成作业：1，2，第三个不用看</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/rishabh-16/cs231n-2019-assignments">https://github.com/rishabh-16/cs231n-2019-assignments</a></p>
+</li>
+<li><p>学到什么程度</p>
+<p>反向传播梯度回传，损失函数，优化算法，多层感知机，卷积神经网络，普通的循环神经网络，以及一些dropout和BN掌握住；</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="自然语言处理"><a href="#自然语言处理" class="headerlink" title="自然语言处理"></a>自然语言处理</h3><ul>
+<li><p>CS224n</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1pt411h7aT?from=search&amp;seid=11365156277928976769&amp;spm_id_from=333.337.0.0">https://www.bilibili.com/video/BV1pt411h7aT?from=search&amp;seid=11365156277928976769&amp;spm_id_from=333.337.0.0</a></p>
+<ul>
+<li><p>一共18讲，看P1-P5和P8，P9,P11；</p>
+</li>
+<li><p>完成作业：</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Luvata/CS224N-2019/tree/master/CS224N-2019/">https://github.com/Luvata/CS224N-2019/tree/master/CS224N-2019/</a></p>
+<p>重点看a1，a2，a4，a5；其实a5这个不做的话，也没问题，把前面给的这个三个一定自己走一遍；</p>
+</li>
+<li><p>学到什么程度</p>
+<p>通过看这个视频你要能够达到什么地步呢？</p>
+<p>其实这个视频和cs231n在基础部分是重叠的，对于基础部分，大家可以都看，两者兼学会更好</p>
+<p>必须熟悉的掌握：反向传播，词向量，RNN，GRU，Lstm，Seq2Seq以及attention机制；初步了解卷积神经网络；</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="必看的一本书：邱锡鹏"><a href="#必看的一本书：邱锡鹏" class="headerlink" title="必看的一本书：邱锡鹏"></a>必看的一本书：邱锡鹏</h3><p>举个例子，比如说看完网络优化和正则化了视频讲解没有搞定；找到这本书对应的章节，比如第七章看一遍，邱老师是怎么讲解的；</p>
+<p><a target="_blank" rel="noopener" href="https://nndl.github.io/">https://nndl.github.io/</a></p>
+<h3 id="Pytorch框架学习"><a href="#Pytorch框架学习" class="headerlink" title="Pytorch框架学习"></a>Pytorch框架学习</h3><ul>
+<li><p>B站刘二大人</p>
+<p>《PyTorch深度学习实践》完结合集 <a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Y7411d7Ys?from=search&amp;seid=1631997590037031874&amp;spm_id_from=333.337.0.0">https://www.bilibili.com/video/BV1Y7411d7Ys?from=search&amp;seid=1631997590037031874&amp;spm_id_from=333.337.0.0</a></p>
+<ul>
+<li><p>源代码</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/bit452/category_10569531.html">https://blog.csdn.net/bit452/category_10569531.html</a></p>
+</li>
+</ul>
+</li>
+<li><p>一个仓库</p>
+<p><a target="_blank" rel="noopener" href="https://github.com/yunjey/pytorch-tutorial">https://github.com/yunjey/pytorch-tutorial</a></p>
+<p>其实我入门是学习的这个仓库，写的非常好，浅显易懂，没有一个多余的代码；</p>
+</li>
+</ul>
+<h3 id="时间安排"><a href="#时间安排" class="headerlink" title="时间安排"></a>时间安排</h3><ul>
+<li>CV和NLP各两周，共计一个月</li>
+</ul>
+<h2 id="深度学习实战入门"><a href="#深度学习实战入门" class="headerlink" title="深度学习实战入门"></a>深度学习实战入门</h2><h3 id="两个学习曲线非常平滑的项目"><a href="#两个学习曲线非常平滑的项目" class="headerlink" title="两个学习曲线非常平滑的项目"></a>两个学习曲线非常平滑的项目</h3><p>但是要记住，我们学习深度学习是为了实战：我给大家准备了两个学习曲线非常平滑的实战项目；<br>一个是新闻分类项目，一个是街景字符识别，也就是图片分类项目，有的人可能会认为这两个项目非常简单，但是我认为千万不要小瞧这两个项目，扎扎实实做完这两个项目，对你的帮助绝对比你想象的要大；</p>
+<ul>
+<li><p>自然语言处理-新闻文本分类</p>
+<p><a target="_blank" rel="noopener" href="https://tianchi.aliyun.com/competition/entrance/531810/introduction?spm=5176.12281973.1005.22.3dd52448NfUWzv">https://tianchi.aliyun.com/competition/entrance/531810/introduction?spm=5176.12281973.1005.22.3dd52448NfUWzv</a></p>
+<p>就像我所说的，这个任务是一个NLP中一个基础任务-文本分类任务；这也是绝大部分从业的业务型NLP工程师日常工作最常见的工作需求；所以掌握好这个任务非常关键；</p>
+<ul>
+<li><p>1.赛题解析</p>
+<p><a target="_blank" rel="noopener" href="https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.30.6406111aQqRTBR&amp;postId=118252">https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.30.6406111aQqRTBR&amp;postId=118252</a></p>
+</li>
+<li><ol start="2">
+<li>分析数据：</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.18.6406111aE3Lglg&amp;postId=118253">https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.18.6406111aE3Lglg&amp;postId=118253</a></p>
+</li>
+<li><ol start="3">
+<li>基于机器学习的文本分类任务：</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.15.6406111aE3Lglg&amp;postId=118254">https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.15.6406111aE3Lglg&amp;postId=118254</a></p>
+<p>tf-idf bagofwords</p>
+</li>
+<li><p>4.不同深度学习模型：</p>
+<ul>
+<li><ol>
+<li>fastext</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.12.6406111aE3Lglg&amp;postId=118255">https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.12.6406111aE3Lglg&amp;postId=118255</a></p>
+</li>
+<li><ol start="2">
+<li>Word2vec</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.9.6406111aE3Lglg&amp;postId=118268">https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.9.6406111aE3Lglg&amp;postId=118268</a></p>
+</li>
+<li><p>3.CNN 做文本分类</p>
+</li>
+<li><p>4.RNN做文本分类</p>
+<p><a target="_blank" rel="noopener" href="https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.24.6406111aE3Lglg&amp;postId=118259">https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.24.6406111aE3Lglg&amp;postId=118259</a></p>
+</li>
+<li><ol start="5">
+<li>BERT做文本分类-先不看</li>
+</ol>
+<p>这个可以先不看，等你入了深度学习的门，认为自己想搞NLP这个方向了，你再去看相关的论文；<br>我把链接放在这里吧：<br><a target="_blank" rel="noopener" href="https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.24.6406111aE3Lglg&amp;postId=118259">https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.24.6406111aE3Lglg&amp;postId=118259</a><br>对应的论文在这里</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>计算机视觉-街景符号识别</p>
+<p><a target="_blank" rel="noopener" href="https://tianchi.aliyun.com/competition/entrance/531795/introduction?spm=5176.12281973.1005.23.3dd52448NfUWzv">https://tianchi.aliyun.com/competition/entrance/531795/introduction?spm=5176.12281973.1005.23.3dd52448NfUWzv</a><br>本质上就是图片分类任务，</p>
+<ul>
+<li><p>1.赛题理解</p>
+<p><a target="_blank" rel="noopener" href="https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.15.2ce879deGunCpk&amp;postId=108659">https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.15.2ce879deGunCpk&amp;postId=108659</a></p>
+</li>
+<li><ol start="2">
+<li>数据读取与数据扩增</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.24.2ce879deGunCpk&amp;postId=108150">https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.24.2ce879deGunCpk&amp;postId=108150</a></p>
+</li>
+<li><ol start="3">
+<li>构建模型：</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.6.2ce879deGunCpk&amp;postId=108711">https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.6.2ce879deGunCpk&amp;postId=108711</a></p>
+</li>
+<li><p>4.模型的训练与验证：</p>
+<p><a target="_blank" rel="noopener" href="https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.3.2ce879deGunCpk&amp;postId=108780">https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.3.2ce879deGunCpk&amp;postId=108780</a></p>
+</li>
+<li><ol start="5">
+<li>模型的集成：</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.21.2ce879deGunCpk&amp;postId=108656">https://tianchi.aliyun.com/notebook-ai/detail?spm=5176.12586969.1002.21.2ce879deGunCpk&amp;postId=108656</a></p>
+</li>
+</ul>
+</li>
+<li><p>要求</p>
+<ul>
+<li>必须弄清楚每行代码</li>
+<li>尽情调参</li>
+</ul>
+</li>
+<li><p>时间要求：共两周；各一周，时间比较宽松，一定要吃透</p>
+</li>
+</ul>
+<h2 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h2><h3 id="百面机器学习"><a href="#百面机器学习" class="headerlink" title="百面机器学习"></a>百面机器学习</h3>
                 
             </div>
             <hr/>
@@ -668,7 +969,7 @@ pip <span class="token function">install</span> tensorflow-metal<span aria-hidde
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Eric-Pk.github.io/2022/02/01/m1%E8%8A%AF%E7%89%87Mac%20tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/">http://Eric-Pk.github.io/2022/02/01/m1%E8%8A%AF%E7%89%87Mac%20tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</a>
+                    <a href="http://Eric-Pk.github.io/2022/05/02/NLP%E5%85%A5%E9%97%A8%E8%B7%AF%E7%BA%BF/">http://Eric-Pk.github.io/2022/05/02/NLP%E5%85%A5%E9%97%A8%E8%B7%AF%E7%BA%BF/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -706,12 +1007,8 @@ pip <span class="token function">install</span> tensorflow-metal<span aria-hidde
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/">
-                                    <span class="chip bg-color">深度学习入门</span>
-                                </a>
-                            
-                                <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
-                                    <span class="chip bg-color">环境搭建</span>
+                                <a href="/tags/NLP%EF%BC%8C%E4%BC%98%E8%B4%A8%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%BF%90/">
+                                    <span class="chip bg-color">NLP，优质博客搬运</span>
                                 </a>
                             
                         </div>
@@ -759,9 +1056,60 @@ pip <span class="token function">install</span> tensorflow-metal<span aria-hidde
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
+            <div class="card">
+                <a href="/2022/05/02/NLP%E5%85%A5%E9%97%A8%E8%B7%AF%E7%BA%BF/">
+                    <div class="card-image">
+                        
+                        
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="公众号【DASOU】原创三个月从零入门深度学习路线图">
+                        
+                        <span class="card-title">公众号【DASOU】原创三个月从零入门深度学习路线图</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-02
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
+                                    深度学习
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/NLP%EF%BC%8C%E4%BC%98%E8%B4%A8%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%BF%90/">
+                        <span class="chip bg-color">NLP，优质博客搬运</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
             <div class="card">
                 <a href="/2022/04/25/prim%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/">
                     <div class="card-image">
@@ -779,9 +1127,9 @@ pip <span class="token function">install</span> tensorflow-metal<span aria-hidde
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-25
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-04-25
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -803,63 +1151,6 @@ pip <span class="token function">install</span> tensorflow-metal<span aria-hidde
                     
                     <a href="/tags/C/">
                         <span class="chip bg-color">C++</span>
-                    </a>
-                    
-                </div>
-                
-            </div>
-        </div>
-        
-        
-        <div class="article col s12 m6" data-aos="fade-up">
-            <div class="article-badge right-badge text-color">
-                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
-            </div>
-            <div class="card">
-                <a href="/2022/01/21/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">
-                    <div class="card-image">
-                        
-                        
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="深度学习之数学基础">
-                        
-                        <span class="card-title">深度学习之数学基础</span>
-                    </div>
-                </a>
-                <div class="card-content article-content">
-                    <div class="summary block-with-text">
-                        
-                            
-                        
-                    </div>
-                    <div class="publish-info">
-                            <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
-                            </span>
-                        <span class="publish-author">
-                            
-                            <i class="fas fa-bookmark fa-fw icon-category"></i>
-                            
-                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                    深度学习
-                                </a>
-                            
-                            
-                        </span>
-                    </div>
-                </div>
-                
-                <div class="card-action article-tags">
-                    
-                    <a href="/tags/%E4%BC%98%E8%B4%A8%E5%8D%9A%E5%AE%A2%E6%90%AC%E8%BF%90/">
-                        <span class="chip bg-color">优质博客搬运</span>
-                    </a>
-                    
-                    <a href="/tags/Tutorial/">
-                        <span class="chip bg-color">Tutorial</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">深度学习</span>
                     </a>
                     
                 </div>
