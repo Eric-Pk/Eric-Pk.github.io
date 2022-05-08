@@ -4,10 +4,16 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="M1芯片Mac tensorflow环境搭建教程, Pk的小世界">
-    <meta name="description" content="[toc]
-近日入手新版MacBook，拿到手打算立马配置好环境，但由于m1芯片是arm架构，故与传统配置方法有所差异。经过研究，现已能够实现配置。
-​	参考教程：https://www.youtube.com/watch?v=4nY5lD">
+    <meta name="keywords" content="Leetcode72:编辑距离, Pk的小世界">
+    <meta name="description" content="72. 编辑距离力扣题目链接
+给你两个单词 word1 和 word2，请你计算出将 word1 转换成 word2 所使用的最少操作数 。
+你可以对一个单词进行如下三种操作：
+
+插入一个字符
+删除一个字符
+替换一个字符
+
+示例 1：输入：">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <meta name="renderer" content="webkit|ie-stand|ie-comp">
@@ -19,7 +25,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>M1芯片Mac tensorflow环境搭建教程 | Pk的小世界</title>
+    <title>Leetcode72:编辑距离 | Pk的小世界</title>
     <link rel="icon" type="image/jpeg" href="/favicon.jpeg">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.min.css">
@@ -424,12 +430,12 @@ mjx-container[display="true"] + br {
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/17.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/13.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">M1芯片Mac tensorflow环境搭建教程</h1>
+                    <h1 class="description center-align post-title">Leetcode72:编辑距离</h1>
                 </div>
             </div>
         </div>
@@ -545,12 +551,12 @@ mjx-container[display="true"] + br {
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/">
-                                <span class="chip bg-color">深度学习入门</span>
+                            <a href="/tags/C/">
+                                <span class="chip bg-color">C++</span>
                             </a>
                         
-                            <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
-                                <span class="chip bg-color">环境搭建</span>
+                            <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+                                <span class="chip bg-color">动态规划</span>
                             </a>
                         
                     </div>
@@ -561,8 +567,8 @@ mjx-container[display="true"] + br {
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/" class="post-category">
-                                深度学习
+                            <a href="/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" class="post-category">
+                                数据结构与算法
                             </a>
                         
                     </div>
@@ -580,7 +586,7 @@ mjx-container[display="true"] + br {
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2022-02-01
+                    2022-05-08
                 </div>
                 
 
@@ -589,7 +595,7 @@ mjx-container[display="true"] + br {
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    452
+                    1.1k
                 </div>
                 
 
@@ -614,35 +620,109 @@ mjx-container[display="true"] + br {
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>[toc]</p>
-<p>近日入手新版MacBook，拿到手打算立马配置好环境，但由于m1芯片是arm架构，故与传统配置方法有所差异。经过研究，现已能够实现配置。</p>
-<p>​	参考教程：<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=4nY5lDBXdOg">https://www.youtube.com/watch?v=4nY5lDBXdOg</a>     <del>(kexueshangwang)</del></p>
-<p>​	由于之前能够找到国内的教程存在一些步骤的跳过/问题，这里还是推荐国外的网站教程。本篇博客教程会比较详细，若存在报错尚未解决，也可以联系我/前往stackoverflow。</p>
-<h3 id="1-Install-Tensorflow-prerequisites"><a href="#1-Install-Tensorflow-prerequisites" class="headerlink" title="1.Install Tensorflow prerequisites"></a>1.Install Tensorflow prerequisites</h3><h4 id="1-1前往homebrew官网，复制官网给出的命令"><a href="#1-1前往homebrew官网，复制官网给出的命令" class="headerlink" title="1.1前往homebrew官网，复制官网给出的命令"></a>1.1前往homebrew官网，复制官网给出的命令</h4><p>​	<strong>这里推荐设置镜像源，加快下载速度：</strong></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">export</span> <span class="token assign-left variable">HOMEBREW_BREW_GIT_REMOTE</span><span class="token operator">=</span><span class="token string">"..."</span>  <span class="token comment"># put your Git mirror of Homebrew/brew here</span>
-<span class="token builtin class-name">export</span> <span class="token assign-left variable">HOMEBREW_CORE_GIT_REMOTE</span><span class="token operator">=</span><span class="token string">"..."</span>  <span class="token comment"># put your Git mirror of Homebrew/homebrew-core here</span>
-/bin/bash -c <span class="token string">"<span class="token variable"><span class="token variable">$(</span><span class="token function">curl</span> -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh<span class="token variable">)</span></span>"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+                <h2 id="72-编辑距离"><a href="#72-编辑距离" class="headerlink" title="72. 编辑距离"></a>72. 编辑距离</h2><p><a target="_blank" rel="noopener" href="https://leetcode-cn.com/problems/edit-distance/">力扣题目链接</a></p>
+<p>给你两个单词 word1 和 word2，请你计算出将 word1 转换成 word2 所使用的最少操作数 。</p>
+<p>你可以对一个单词进行如下三种操作：</p>
+<ul>
+<li>插入一个字符</li>
+<li>删除一个字符</li>
+<li>替换一个字符</li>
+</ul>
+<p>示例 1：<br>输入：word1 = “horse”, word2 = “ros”<br>输出：3<br>解释：<br>horse -&gt; rorse (将 ‘h’ 替换为 ‘r’)<br>rorse -&gt; rose (删除 ‘r’)<br>rose -&gt; ros (删除 ‘e’)</p>
+<p>示例 2：<br>输入：word1 = “intention”, word2 = “execution”<br>输出：5<br>解释：<br>intention -&gt; inention (删除 ‘t’)<br>inention -&gt; enention (将 ‘i’ 替换为 ‘e’)<br>enention -&gt; exention (将 ‘n’ 替换为 ‘x’)<br>exention -&gt; exection (将 ‘n’ 替换为 ‘c’)<br>exection -&gt; execution (插入 ‘u’)</p>
+<p>提示：</p>
+<ul>
+<li>0 &lt;= word1.length, word2.length &lt;= 500</li>
+<li>word1 和 word2 由小写英文字母组成</li>
+</ul>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>按照动态规划的五部曲，对本题目进行分析：</p>
+<h3 id="1-确定dp数组（dp-table）以及下标的含义"><a href="#1-确定dp数组（dp-table）以及下标的含义" class="headerlink" title="1. 确定dp数组（dp table）以及下标的含义"></a>1. 确定dp数组（dp table）以及下标的含义</h3><p>dp[i],[j] 表示以下标i-1为结尾的字符串word1，和以下标j-1为结尾的字符串word2，最近编辑距离为dp[i],[j]。</p>
+<h3 id="2-确定递推公式"><a href="#2-确定递推公式" class="headerlink" title="2. 确定递推公式"></a>2. 确定递推公式</h3><p>在确定递推公式的时候，首先要考虑清楚编辑的几种操作,即：增、删、改。</p>
+<pre class="line-numbers language-none"><code class="language-none">if (word1[i - 1] == word2[j - 1])
+    不操作
+if (word1[i - 1] != word2[j - 1])
+    增
+    删
+    换<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="1-2安装Xcode命令行工具"><a href="#1-2安装Xcode命令行工具" class="headerlink" title="1.2安装Xcode命令行工具"></a>1.2安装Xcode命令行工具</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">xcode-select --install<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+<p>也就是如上4种情况。</p>
+<p><code>if (word1[i - 1] == word2[j - 1])</code> 那么说明不用任何编辑，<code>dp[i][j]</code> 就应该是 <code>dp[i - 1][j - 1]</code>，即<code>dp[i][j] = dp[i - 1][j - 1];</code></p>
+<p><strong>在整个动规的过程中，最为关键就是正确理解<code>dp[i][j]</code>的定义！</strong></p>
+<p><code>if (word1[i - 1] != word2[j - 1])</code>，此时就需要编辑了，如何编辑呢？</p>
+<ul>
+<li>操作一：word1删除一个元素，那么就是以下标i - 2为结尾的word1 与 j-1为结尾的word2的最近编辑距离 再加上一个操作。</li>
+</ul>
+<p>即 <code>dp[i][j] = dp[i - 1][j] + 1;</code></p>
+<ul>
+<li>操作二：word2删除一个元素，那么就是以下标i - 1为结尾的word1 与 j-2为结尾的word2的最近编辑距离 再加上一个操作。</li>
+</ul>
+<p>即 <code>dp[i][j] = dp[i][j - 1] + 1;</code></p>
+<p>这里还有一个巧妙的等价：<strong>word2添加一个元素，相当于word1删除一个元素</strong>。例如 <code>word1 = "ad" ，word2 = "a"</code>，<code>word1</code>删除元素<code>'d'</code> 和 <code>word2</code>添加一个元素<code>'d'</code>，变成<code>word1="a", word2="ad"</code>， 最终的操作数是一样！</p>
+<ul>
+<li>操作三：替换元素，<code>word1</code>替换<code>word1[i - 1]</code>，使其与<code>word2[j - 1]</code>相同，此时不用增加元素，那么以下标<code>i-2</code>为结尾的<code>word1</code> 与 <code>j-2</code>为结尾的<code>word2</code>的最近编辑距离加上一个替换元素的操作。即 <code>dp[i][j] = dp[i - 1][j - 1] + 1;</code></li>
+</ul>
+<p>综上所述，当 <code>if (word1[i - 1] != word2[j - 1])</code> 时取三种操作最小的，即：<code>dp[i][j] = min({dp[i - 1][j - 1], dp[i - 1][j], dp[i][j - 1]}) + 1;</code></p>
+<p>递归公式代码如下：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">if</span> <span class="token punctuation">(</span>word1<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> word2<span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+<span class="token keyword">else</span> <span class="token punctuation">{</span>
+    dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span><span class="token punctuation">{</span>dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="1-3安装miniforge"><a href="#1-3安装miniforge" class="headerlink" title="1.3安装miniforge"></a>1.3安装miniforge</h4><p>​	<strong>前往github.com/conda-forge，在readme文件中找到下载链接</strong></p>
-<p>​    <strong>安装好后cd到下载路径(这里我安装到桌面），然后执行sh脚本：</strong></p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> Desktop
-<span class="token function">chmod</span> +x Miniforge3-MacOSX-arm64.sh
-./Miniforge3-MscOSX-arm64.sh<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<hr>
+<h3 id="3-dp数组如何初始化"><a href="#3-dp数组如何初始化" class="headerlink" title="3. dp数组如何初始化"></a>3. dp数组如何初始化</h3><p>这里dp[i],[0]与dp[0],[j]初始值如何确定？</p>
+<p>dp[i],[0]：以下标i-1为结尾的字符串word1，和空字符串word2，最近编辑距离为dp[i],[0]。</p>
+<p>那么dp[i],[0]就应该是i，对word1里的元素全部做删除操作，即：dp[i],[0]= i;</p>
+<p>同理dp[0],[j] = j;</p>
+<p>则初始化过程如下：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> word1<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
+<span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> word2<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> j<span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<p>​	<strong>一路回车，yes后安装完成</strong></p>
-<h4 id="1-4创建conda虚拟环境"><a href="#1-4创建conda虚拟环境" class="headerlink" title="1.4创建conda虚拟环境"></a>1.4创建conda虚拟环境</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">conda create --name env_tf <span class="token assign-left variable">python</span><span class="token operator">=</span><span class="token number">3.9</span>
-conda activate env_tf<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
-<h3 id="2-Install-Tensorflow-amp-Tensorflow-Metal"><a href="#2-Install-Tensorflow-amp-Tensorflow-Metal" class="headerlink" title="2.Install Tensorflow & Tensorflow Metal"></a>2.Install Tensorflow &amp; Tensorflow Metal</h3><h4 id="2-1安装Tensorflow开发者工具与Tensorflow"><a href="#2-1安装Tensorflow开发者工具与Tensorflow" class="headerlink" title="2.1安装Tensorflow开发者工具与Tensorflow"></a>2.1安装Tensorflow开发者工具与Tensorflow</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">conda <span class="token function">install</span> -c apple tensorflow-deps -y
-python -m pip <span class="token function">install</span> tensorflow-macos
-pip <span class="token function">install</span> tensorflow-metal<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<h3 id="4-确定遍历顺序"><a href="#4-确定遍历顺序" class="headerlink" title="4. 确定遍历顺序"></a>4. 确定遍历顺序</h3><p>从如下四个递推公式：</p>
+<ul>
+<li><code>dp[i][j] = dp[i - 1][j - 1]</code></li>
+<li><code>dp[i][j] = dp[i - 1][j - 1] + 1</code></li>
+<li><code>dp[i][j] = dp[i][j - 1] + 1</code></li>
+<li><code>dp[i][j] = dp[i - 1][j] + 1</code></li>
+</ul>
+<p>所以在dp矩阵中一定是从左到右从上到下去遍历。</p>
+<p>遍历代码如下：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c"><span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> word1<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+    <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> word2<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>word1<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> word2<span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span><span class="token punctuation">{</span>dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="2-2安装相关包、Jupyter等"><a href="#2-2安装相关包、Jupyter等" class="headerlink" title="2.2安装相关包、Jupyter等"></a>2.2安装相关包、Jupyter等</h4><p>​	这里就比较容易了，可以直接一句句conda install [_name]，也可以把想装的包全写在一个文件里一次性安装。</p>
-<h3 id="3-如何科学上网"><a href="#3-如何科学上网" class="headerlink" title="3.如何科学上网"></a><strong>3.如何<del>科学上网</del></strong></h3><p>​    在学习/科研的过程中，我们难免会需要使用一些外网（Google/Stackoverflow/Github/Youtube等）。在这里，由于进行换源操作确实很麻烦，最后我直接开了美国IP暴力解决，这里想推荐一款我使用的Vpn。</p>
-<p>​                                                                           <del><a href="">cmy2.network</a></del></p>
-<h1 id=""><a href="#" class="headerlink" title=""></a></h1>
+<h3 id="5-举例推导dp数组"><a href="#5-举例推导dp数组" class="headerlink" title="5. 举例推导dp数组"></a>5. 举例推导dp数组</h3><p>以上动规五部分析完毕，C++代码如下：</p>
+<pre class="line-numbers language-c" data-language="c"><code class="language-c">class Solution <span class="token punctuation">{</span>
+public<span class="token operator">:</span>
+    <span class="token keyword">int</span> <span class="token function">minDistance</span><span class="token punctuation">(</span>string word1<span class="token punctuation">,</span> string word2<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        vector<span class="token operator">&lt;</span>vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;&gt;</span> <span class="token function">dp</span><span class="token punctuation">(</span>word1<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> vector<span class="token operator">&lt;</span><span class="token keyword">int</span><span class="token operator">&gt;</span><span class="token punctuation">(</span>word2<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">,</span> <span class="token number">0</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> word1<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span> <span class="token operator">=</span> i<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> word2<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> dp<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> j<span class="token punctuation">;</span>
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> i <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> i <span class="token operator">&lt;=</span> word1<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> i<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> j <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span> j <span class="token operator">&lt;=</span> word2<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span> j<span class="token operator">++</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                <span class="token keyword">if</span> <span class="token punctuation">(</span>word1<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span> <span class="token operator">==</span> word2<span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                    dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+                <span class="token keyword">else</span> <span class="token punctuation">{</span>
+                    dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token function">min</span><span class="token punctuation">(</span><span class="token punctuation">{</span>dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>i <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">[</span>j<span class="token punctuation">]</span><span class="token punctuation">,</span> dp<span class="token punctuation">[</span>i<span class="token punctuation">]</span><span class="token punctuation">[</span>j <span class="token operator">-</span> <span class="token number">1</span><span class="token punctuation">]</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">+</span> <span class="token number">1</span><span class="token punctuation">;</span>
+                <span class="token punctuation">}</span>
+            <span class="token punctuation">}</span>
+        <span class="token punctuation">}</span>
+        <span class="token keyword">return</span> dp<span class="token punctuation">[</span>word1<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">[</span>word2<span class="token punctuation">.</span><span class="token function">size</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
                 
             </div>
             <hr/>
@@ -668,7 +748,7 @@ pip <span class="token function">install</span> tensorflow-metal<span aria-hidde
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://Eric-Pk.github.io/2022/02/01/m1%E8%8A%AF%E7%89%87Mac%20tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/">http://Eric-Pk.github.io/2022/02/01/m1%E8%8A%AF%E7%89%87Mac%20tensorflow%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/</a>
+                    <a href="http://Eric-Pk.github.io/2022/05/08/Leetcode72-%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB/">http://Eric-Pk.github.io/2022/05/08/Leetcode72-%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -706,12 +786,12 @@ pip <span class="token function">install</span> tensorflow-metal<span aria-hidde
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E5%85%A5%E9%97%A8/">
-                                    <span class="chip bg-color">深度学习入门</span>
+                                <a href="/tags/C/">
+                                    <span class="chip bg-color">C++</span>
                                 </a>
                             
-                                <a href="/tags/%E7%8E%AF%E5%A2%83%E6%90%AD%E5%BB%BA/">
-                                    <span class="chip bg-color">环境搭建</span>
+                                <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+                                    <span class="chip bg-color">动态规划</span>
                                 </a>
                             
                         </div>
@@ -759,17 +839,18 @@ pip <span class="token function">install</span> tensorflow-metal<span aria-hidde
 <article id="prenext-posts" class="prev-next articles">
     <div class="row article-row">
         
-        <div class="article col s12 m6" data-aos="fade-up">
+        <div class="article col s12 m6" data-aos="fade-up" data-aos="fade-up">
             <div class="article-badge left-badge text-color">
-                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+                <i class="far fa-dot-circle"></i>&nbsp;本篇
+            </div>
             <div class="card">
-                <a href="/2022/04/25/prim%E4%BB%A3%E7%A0%81%E5%AE%9E%E7%8E%B0/">
+                <a href="/2022/05/08/Leetcode72-%E7%BC%96%E8%BE%91%E8%B7%9D%E7%A6%BB/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="prim代码实现">
+                        <img src="/medias/featureimages/13.jpg" class="responsive-img" alt="Leetcode72:编辑距离">
                         
-                        <span class="card-title">prim代码实现</span>
+                        <span class="card-title">Leetcode72:编辑距离</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -779,9 +860,9 @@ pip <span class="token function">install</span> tensorflow-metal<span aria-hidde
                         
                     </div>
                     <div class="publish-info">
-                        <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2022-04-25
-                        </span>
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-08
+                            </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
@@ -794,15 +875,16 @@ pip <span class="token function">install</span> tensorflow-metal<span aria-hidde
                         </span>
                     </div>
                 </div>
+
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/%E5%9B%BE%E8%AE%BA/">
-                        <span class="chip bg-color">图论</span>
-                    </a>
-                    
                     <a href="/tags/C/">
                         <span class="chip bg-color">C++</span>
+                    </a>
+                    
+                    <a href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/">
+                        <span class="chip bg-color">动态规划</span>
                     </a>
                     
                 </div>
@@ -816,13 +898,13 @@ pip <span class="token function">install</span> tensorflow-metal<span aria-hidde
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2022/01/21/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E4%B9%8B%E6%95%B0%E5%AD%A6%E5%9F%BA%E7%A1%80/">
+                <a href="/2022/05/02/NLP%E5%85%A5%E9%97%A8%E8%B7%AF%E7%BA%BF/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="深度学习之数学基础">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="公众号【DASOU】原创三个月从零入门深度学习路线图">
                         
-                        <span class="card-title">深度学习之数学基础</span>
+                        <span class="card-title">公众号【DASOU】原创三个月从零入门深度学习路线图</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -833,7 +915,7 @@ pip <span class="token function">install</span> tensorflow-metal<span aria-hidde
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2022-01-21
+                                <i class="far fa-clock fa-fw icon-date"></i>2022-05-02
                             </span>
                         <span class="publish-author">
                             
@@ -854,12 +936,8 @@ pip <span class="token function">install</span> tensorflow-metal<span aria-hidde
                         <span class="chip bg-color">优质博客搬运</span>
                     </a>
                     
-                    <a href="/tags/Tutorial/">
-                        <span class="chip bg-color">Tutorial</span>
-                    </a>
-                    
-                    <a href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">
-                        <span class="chip bg-color">深度学习</span>
+                    <a href="/tags/NLP/">
+                        <span class="chip bg-color">NLP</span>
                     </a>
                     
                 </div>
